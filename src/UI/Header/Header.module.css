@@ -1,0 +1,10 @@
+.headstyle {
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	font-family: var(system-ui, Avenir, Helvetica, Arial, sans-serif);
+	color: rgb(255, 229, 85);
+	background-color: rgb(49, 76, 156);
+	padding: 20px;
+}
