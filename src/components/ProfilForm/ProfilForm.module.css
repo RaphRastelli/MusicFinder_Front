@@ -1,0 +1,57 @@
+.section {
+  border: 1px solid var(--color-text);
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.section h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.optionList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.option input[type="radio"],
+.option input[type="checkbox"] {
+  accent-color: var(--color-text);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 10px 24px;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--color-bg);
+  background-color: var(--color-text);
+  border: none;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.btn:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

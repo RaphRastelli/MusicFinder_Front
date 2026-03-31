@@ -1,0 +1,11 @@
+.container {
+  max-width: 680px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.container h2 {
+  font-size: 1.6rem;
+  color: var(--color-text);
+  margin-bottom: 40px;
+}
