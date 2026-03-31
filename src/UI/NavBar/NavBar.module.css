@@ -1,0 +1,46 @@
+.navbar {
+  background-color: var(--color-text);
+  padding: 10px 20px;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+}
+
+.navList a {
+  color: var(--color-bg);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.navList a:hover {
+  opacity: 0.75;
+}
+
+.username {
+  color: var(--color-bg);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-left: auto;
+}
+
+.logoutBtn {
+  background: none;
+  border: 1px solid var(--color-bg);
+  color: var(--color-bg);
+  font-size: 0.9rem;
+  padding: 4px 12px;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.logoutBtn:hover {
+  opacity: 0.75;
+}

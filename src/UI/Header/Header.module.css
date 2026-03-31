@@ -1,10 +1,14 @@
 .headstyle {
   display: flex;
-	flex-direction: column;
-	align-items: center;
+  flex-direction: row;
+  align-items: baseline;
+  font-family: var(--font-main);
+  color: var(--color-bg);
+  background-color: var(--color-text);
+  padding: 20px;
+}
 
-	font-family: var(system-ui, Avenir, Helvetica, Arial, sans-serif);
-	color: rgb(255, 229, 85);
-	background-color: rgb(49, 76, 156);
-	padding: 20px;
+.headstyle a {
+  color: inherit;
+  text-decoration: none;
 }
