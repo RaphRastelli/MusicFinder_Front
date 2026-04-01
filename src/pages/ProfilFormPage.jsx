@@ -9,6 +9,15 @@ import DisponibiliteForm          from '../components/ProfilForm/DisponibiliteFo
 import StylePrincipalForm         from '../components/ProfilForm/StylePrincipalForm.jsx';
 import StylesSecondairesForm      from '../components/ProfilForm/StylesSecondairesForm.jsx';
 import style from './ProfilFormPage.module.css';
+import {
+  saveInstrumentPrincipal,
+  saveInstrumentsSecondaires,
+  saveNiveau,
+  saveDisponibilite,
+  saveLocations,
+  saveStylePrincipal,
+  saveStylesSecondaires,
+} from '../api/musicianApi.js';
 
 export default function ProfilFormPage() {
   const { token } = useAuth();   // on récupère le token pour vérifier la connexion
@@ -45,45 +54,38 @@ export default function ProfilFormPage() {
   // au parent via la prop onSave.
 
   const handleInstrumentPrincipal = async (id) => {
-    console.log('Instrument principal sélectionné — id :', id);
+    await saveInstrumentPrincipal(id);
     // On mémorise l'id pour le passer à InstrumentsSecondairesForm
     // qui doit exclure cet instrument de sa propre liste
     setInstrumentPrincipalId(id);
-    // TODO étape suivante : appel API backend
   };
 
   const handleInstrumentsSecondaires = async (ids) => {
     // ids est un tableau — ex: [3, 7, 12]
-    console.log('Instruments secondaires sélectionnés — ids :', ids);
-    // TODO étape suivante : appel API backend
+    await saveInstrumentsSecondaires(ids);
   };
 
   const handleNiveau = async (id) => {
-    console.log('Niveau sélectionné — id :', id);
-    // TODO étape suivante : appel API backend
+  await saveNiveau(id);
   };
 
   const handleLocalisation = async (ids) => {
     // ids est un tableau — ex: [1, 5]
-    console.log('Localisations sélectionnées — ids :', ids);
-    // TODO étape suivante : appel API backend
+    await saveLocations(ids);
   };
 
   const handleDisponibilite = async (id) => {
-    console.log('Disponibilité sélectionnée — id :', id);
-    // TODO étape suivante : appel API backend
+    await saveDisponibilite(id);
   };
 
   const handleStylePrincipal = async (id) => {
-    console.log('Style principal sélectionné — id :', id);
+    await saveStylePrincipal(id);
     // On mémorise l'id pour le passer à StylesSecondairesForm
     setStylePrincipalId(id);
-    // TODO étape suivante : appel API backend
   };
 
   const handleStylesSecondaires = async (ids) => {
-    console.log('Styles secondaires sélectionnés — ids :', ids);
-    // TODO étape suivante : appel API backend
+    await saveStylesSecondaires(ids);
   };
 
 
