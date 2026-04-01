@@ -39,31 +39,36 @@ export default function HomePage() {
 
       <div className={style.actions}>
 
-        {!token && (
-          // Boutons visibles uniquement si non connecté
-          <Link to="/inscription" className={style.btn}>
-            Je veux m'inscrire comme musicien.ne
-          </Link>
-        )}
+  {!token ? (
+    // ── Non connecté ─────────────────────────────────────────────────
+    <>
+      <Link to="/inscription" className={style.btn}>
+        Je veux m'inscrire comme musicien.ne
+      </Link>
 
-        <Link to="/recherche" className={style.btn}>
-          Je ne suis pas inscrit.e mais cherche un ou une musicien.ne
-        </Link>
+      <Link to="/recherche" className={style.btn}>
+        Je ne suis pas inscrit.e mais cherche un ou une musicien.ne
+      </Link>
 
-        {token ? (
-          // Connecté — accès direct au profil
-          <Link to="/profil" className={style.btn}>
-            Je veux modifier mon profil ou effectuer une recherche
-          </Link>
-        ) : (
-          // Non connecté — invitation à se connecter
-          <Link to="/connexion" className={style.btn}>
-            Je suis déjà inscrit.e et veux modifier mon profil ou
-            effectuer une recherche
-          </Link>
-        )}
+      <Link to="/connexion" className={style.btn}>
+        Je suis déjà inscrit.e et veux modifier mon profil ou
+        effectuer une recherche
+      </Link>
+    </>
+  ) : (
+    // ── Connecté ──────────────────────────────────────────────────────
+    <>
+      <Link to="/profil" className={style.btn}>
+        Je veux modifier mon profil
+      </Link>
 
-      </div>
+      <Link to="/recherche" className={style.btn}>
+        Je cherche un ou une musicien.ne
+      </Link>
+    </>
+  )}
+
+</div>
 
     </div>
   );

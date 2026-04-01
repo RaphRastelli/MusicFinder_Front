@@ -35,8 +35,8 @@ export default function ConnexionPage() {
 
       setSuccess('Vous êtes bien connecté !');
 
-      // Redirection vers le profil après 1.5 secondes
-      setTimeout(() => navigate('/profil'), 1500);
+      // Redirection vers le homepage après 1.5 secondes
+      setTimeout(() => navigate('/'), 1500);
 
     } catch (err) {
       if (err.response?.status === 401) {

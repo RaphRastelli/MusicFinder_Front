@@ -20,3 +20,6 @@ export const saveStylePrincipal = (styleId) =>
 
 export const saveStylesSecondaires = (styleIds) =>
   axiosInstance.put('/api/musicians/me/styles-secondaires', { styleIds });
+
+export const saveDescription = (description) =>
+  axiosInstance.patch('/api/musicians/me/description', { description });

@@ -8,6 +8,7 @@ import LocalisationForm           from '../components/ProfilForm/LocalisationFor
 import DisponibiliteForm          from '../components/ProfilForm/DisponibiliteForm.jsx';
 import StylePrincipalForm         from '../components/ProfilForm/StylePrincipalForm.jsx';
 import StylesSecondairesForm      from '../components/ProfilForm/StylesSecondairesForm.jsx';
+import DescriptionForm            from '../components/ProfilForm/DescriptionForm.jsx';
 import style from './ProfilFormPage.module.css';
 import {
   saveInstrumentPrincipal,
@@ -17,11 +18,14 @@ import {
   saveLocations,
   saveStylePrincipal,
   saveStylesSecondaires,
+  saveDescription,
 } from '../api/musicianApi.js';
 
+
 export default function ProfilFormPage() {
-  const { token } = useAuth();   // on récupère le token pour vérifier la connexion
-  const navigate  = useNavigate(); // hook pour naviguer vers une autre page
+  /* const { token } = useAuth(); */   // on récupère le token pour vérifier la connexion
+  /* const navigate = useNavigate(); */ // hook pour naviguer vers une autre page
+  // supprimés car guards/ProtectedRoute.jsx mis en place
 
 
   // ─── États pour les dépendances entre formulaires ─────────────────────
@@ -38,10 +42,11 @@ export default function ProfilFormPage() {
   // Si l'utilisateur n'est pas connecté (pas de token), on le redirige
   // vers la page de connexion avant de rendre quoi que ce soit.
   // return null empêche le rendu du reste du composant.
-  if (!token) {
+  /* if (!token) {
     navigate('/connexion');
     return null;
-  }
+  } */
+ // supprimé car guards/ProtectedRoute.jsx mis en place
 
 
   // ─── Handlers ─────────────────────────────────────────────────────────
@@ -88,6 +93,10 @@ export default function ProfilFormPage() {
     await saveStylesSecondaires(ids);
   };
 
+  const handleDescription = async (text) => {
+  await saveDescription(text);
+};
+
 
   return (
     <div className={style.container}>
@@ -129,6 +138,11 @@ export default function ProfilFormPage() {
       <StylesSecondairesForm
         onSave={handleStylesSecondaires}
         stylePrincipalId={stylePrincipalId}
+      />
+
+      {/* Dernier formulaire — description libre */}
+      <DescriptionForm
+        onSave={handleDescription}
       />
 
     </div>

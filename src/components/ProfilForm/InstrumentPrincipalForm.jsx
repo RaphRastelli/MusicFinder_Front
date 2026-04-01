@@ -17,11 +17,11 @@ export default function InstrumentPrincipalForm({ onSave }) {
 
   // toast : objet { message, type } ou null si aucun toast à afficher
   // type peut être 'success', 'error' ou 'info'
-  const [toast,    setToast]    = useState(null);
+  const [toast, setToast] = useState(null);
 
   // loading : true pendant l'appel API pour désactiver le bouton
   // et éviter les doubles soumissions
-  const [loading,  setLoading]  = useState(false);
+  const [loading, setLoading] = useState(false);
 
 
   // ── Soumission du formulaire ──────────────────────────────────────────

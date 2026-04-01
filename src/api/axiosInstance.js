@@ -4,7 +4,7 @@ import axios from 'axios';
 // Plutôt que d'utiliser axios directement avec l'URL complète à chaque fois,
 // on crée une instance pré-configurée.
 // Tous les appels faits via axiosInstance utiliseront automatiquement
-// cette baseURL — vous n'écrivez plus que le chemin relatif.
+// cette baseURL — on n'écrit plus que le chemin relatif.
 // Exemple : axiosInstance.post('/api/auth/login') au lieu de 
 // axios.post('https://localhost:7274/api/auth/login')
 const axiosInstance = axios.create({
