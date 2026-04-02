@@ -26,3 +26,7 @@ export const saveStylesSecondaires = (styleIds) =>
 
 export const saveDescription = (description) =>
   axiosInstance.patch('/api/musicians/me/description', { description });
+
+// Accessible à tous — pas de token requis
+export const getMusicianProfile = (id) =>
+  axiosInstance.get(`/api/musicians/${id}`);
