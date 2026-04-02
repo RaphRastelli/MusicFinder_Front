@@ -10,10 +10,12 @@ import StylePrincipalForm         from '../components/ProfilForm/StylePrincipalF
 import StylesSecondairesForm      from '../components/ProfilForm/StylesSecondairesForm.jsx';
 import DescriptionForm            from '../components/ProfilForm/DescriptionForm.jsx';
 import style from './ProfilFormPage.module.css';
+import ProjectTypeForm from '../components/ProfilForm/ProjectTypeForm.jsx';
 import {
   saveInstrumentPrincipal,
   saveInstrumentsSecondaires,
   saveNiveau,
+  saveProjectTypes,
   saveDisponibilite,
   saveLocations,
   saveStylePrincipal,
@@ -79,6 +81,10 @@ export default function ProfilFormPage() {
     await saveLocations(ids);
   };
 
+  const handleProjectTypes = async (ids) => {
+  await saveProjectTypes(ids);
+  };
+
   const handleDisponibilite = async (id) => {
     await saveDisponibilite(id);
   };
@@ -124,6 +130,10 @@ export default function ProfilFormPage() {
 
       <LocalisationForm
         onSave={handleLocalisation}
+      />
+
+      <ProjectTypeForm
+       onSave={handleProjectTypes}
       />
 
       <DisponibiliteForm

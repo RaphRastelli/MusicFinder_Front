@@ -9,6 +9,9 @@ export const saveInstrumentsSecondaires = (instrumentIds) =>
 export const saveNiveau = (ability) =>
   axiosInstance.patch('/api/musicians/me/niveau', { ability });
 
+export const saveProjectTypes = (projectTypeIds) =>
+  axiosInstance.put('/api/musicians/me/project-types', { projectTypeIds });
+
 export const saveDisponibilite = (availability) =>
   axiosInstance.patch('/api/musicians/me/disponibilite', { availability });
 
