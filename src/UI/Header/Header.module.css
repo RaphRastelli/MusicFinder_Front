@@ -1,14 +1,26 @@
 .headstyle {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: flex-end;
   font-family: var(--font-main);
   color: var(--color-bg);
   background-color: var(--color-text);
-  padding: 0px 20px 0px 20px;
+  padding: 0px 20px 0 20px;
+  overflow: hidden;
 }
 
-.headstyle a {
-  color: inherit;
-  text-decoration: none;
+.headstyle h1 {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 2rem !important;
+  line-height: 1 !important;
+}
+
+.headstyle h1 a {
+  display: block !important;
+  font-size: 4rem !important;
+  line-height: 1 !important;
+  color: var(--color-bg) !important;
+  text-decoration: none !important;
+  transform: translateY(12px); /* pousse le texte vers le bas — ajustez la valeur */
 }
