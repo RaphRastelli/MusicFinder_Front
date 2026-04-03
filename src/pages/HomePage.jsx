@@ -15,11 +15,11 @@ export default function HomePage() {
 
       <div className={style.intro}>
         <p>
-          Vous êtes musicien.ne et vous cherchez une ou un musicien.ne pour
+          Vous êtes musicien•ne et vous cherchez une ou un musicien•ne pour
           un projet ponctuel, pour votre groupe… Vous êtes au bon endroit.
         </p>
         <p>
-          Vous n'êtes pas musicien.ne mais vous voulez en trouver pour une
+          Vous n'êtes pas musicien•ne mais vous voulez en trouver pour une
           collaboration sur votre projet, pour trouver des cours… Vous êtes
           aussi au bon endroit.
         </p>
@@ -43,15 +43,15 @@ export default function HomePage() {
     // ── Non connecté ─────────────────────────────────────────────────
     <>
       <Link to="/inscription" className={style.btn}>
-        Je veux m'inscrire comme musicien.ne
+        Je veux m'inscrire comme musicien•ne
       </Link>
 
       <Link to="/recherche" className={style.btn}>
-        Je ne suis pas inscrit.e mais cherche un ou une musicien.ne
+        Je ne suis pas inscrit•e mais cherche un ou une musicien•ne
       </Link>
 
       <Link to="/connexion" className={style.btn}>
-        Je suis déjà inscrit.e et veux modifier mon profil ou
+        Je suis déjà inscrit•e et veux modifier mon profil ou
         effectuer une recherche
       </Link>
     </>
@@ -63,7 +63,7 @@ export default function HomePage() {
       </Link>
 
       <Link to="/recherche" className={style.btn}>
-        Je cherche un ou une musicien.ne
+        Je cherche un ou une musicien•ne
       </Link>
     </>
   )}

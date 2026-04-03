@@ -56,12 +56,13 @@ export default function InscriptionPage() {
 
       // Connexion automatique après inscription
       authLogin({
-        token:    response.data.token,
+        id: response.data.id,
+        token: response.data.token,
         username: response.data.username,
-        role:     response.data.role,
+        role: response.data.role,
       });
 
-      setSuccess('Vous êtes bien inscrit !');
+      setSuccess('Vous êtes bien inscrit•e !');
 
       // Redirection vers le profil après 1.5 secondes
       setTimeout(() => navigate('/profil'), 1500);

@@ -3,7 +3,7 @@ import { useAuth } from '../../context/AuthContext.jsx';
 import style from './NavBar.module.css';
 
 export default function NavBar() {
-  const { token, username, logout } = useAuth();
+  const { token, username, musicianId, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -20,7 +20,11 @@ export default function NavBar() {
 
         {token ? (
           <>
-            <li><Link to="/profil">Mon profil</Link></li>
+            <li><Link to={`/musicien/${musicianId}`}>Mon profil</Link></li>
+            {/* Nouveau lien vers le formulaire de modification */}
+            <li>
+              <Link to="/profil">Modifier mon profil</Link>
+            </li>
             <li className={style.username}>Bonjour, {username}</li>
             <li>
               <button onClick={handleLogout} className={style.logoutBtn}>

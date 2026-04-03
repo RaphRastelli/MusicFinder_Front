@@ -40,7 +40,7 @@ export default function ResultsPage() {
       <div className={style.header}>
         <h2>Résultats de la recherche</h2>
         <p className={style.count}>
-          {totalCount} musicien{totalCount > 1 ? 's' : ''} trouvé{totalCount > 1 ? 's' : ''}
+          {totalCount} musicien.ne{totalCount > 1 ? 's' : ''} trouvé.e{totalCount > 1 ? 's' : ''}
         </p>
       </div>
 

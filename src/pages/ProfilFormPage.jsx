@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import InstrumentPrincipalForm    from '../components/ProfilForm/InstrumentPrincipalForm.jsx';
 import InstrumentsSecondairesForm from '../components/ProfilForm/InstrumentsSecondairesForm.jsx';
@@ -28,6 +28,8 @@ export default function ProfilFormPage() {
   /* const { token } = useAuth(); */   // on récupère le token pour vérifier la connexion
   /* const navigate = useNavigate(); */ // hook pour naviguer vers une autre page
   // supprimés car guards/ProtectedRoute.jsx mis en place
+
+  const { musicianId } = useAuth();
 
 
   // ─── États pour les dépendances entre formulaires ─────────────────────
@@ -154,6 +156,13 @@ export default function ProfilFormPage() {
       <DescriptionForm
         onSave={handleDescription}
       />
+
+      {/* Bouton "Voir mon profil" — en bas de page */}
+      <div className={style.profileLink}>
+        <Link to={`/musicien/${musicianId}`} className={style.profileBtn}>
+          Voir mon profil
+        </Link>
+      </div>
 
     </div>
   );

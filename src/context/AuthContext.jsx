@@ -7,6 +7,7 @@ import { createContext, useContext, useState } from 'react';
 // La valeur null est la valeur par défaut — elle sera écrasée par le Provider.
 const AuthContext = createContext(null);
 
+
 // ─── 2. LE PROVIDER ───────────────────────────────────────────────────────
 // C'est le composant qui "enveloppe" toute l'application (dans main.jsx).
 // Il stocke les données d'authentification et les rend disponibles partout.
@@ -20,6 +21,7 @@ export function AuthProvider({ children }) {
   const [token, setToken] = useState(localStorage.getItem('token') ?? null);
   const [username, setUsername] = useState(localStorage.getItem('username') ?? null);
   const [role, setRole] = useState(localStorage.getItem('role') ?? null);
+  const [musicianId, setMusicianId] = useState(localStorage.getItem('musicianId') ?? null);
 
   // ── Fonction login ────────────────────────────────────────────────────
   // Appelée après un register ou login réussi.
@@ -31,12 +33,14 @@ export function AuthProvider({ children }) {
     localStorage.setItem('token', data.token);
     localStorage.setItem('username', data.username);
     localStorage.setItem('role', data.role);
+    localStorage.setItem('musicianId', data.id);
 
     // Ces setters déclenchent un re-rendu de tous les composants
     // qui utilisent useAuth() — la NavBar bascule immédiatement
     setToken(data.token);
     setUsername(data.username);
     setRole(data.role);
+    setMusicianId(data.id);
   };
 
   // ── Fonction logout ───────────────────────────────────────────────────
@@ -46,9 +50,11 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     localStorage.removeItem('role');
+    localStorage.removeItem('musicianId');
     setToken(null);
     setUsername(null);
     setRole(null);
+    setMusicianId(null);
   };
 
   // ── Le rendu du Provider ──────────────────────────────────────────────
@@ -56,7 +62,7 @@ export function AuthProvider({ children }) {
   // dans l'application. On expose les données ET les fonctions.
   // {children} rend tout ce qui est à l'intérieur du Provider dans main.jsx.
   return (
-    <AuthContext.Provider value={{ token, username, role, login, logout }}>
+    <AuthContext.Provider value={{ token, username, role, musicianId, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

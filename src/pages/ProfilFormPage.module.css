@@ -9,3 +9,24 @@
   color: var(--color-text);
   margin-bottom: 40px;
 }
+
+.profileLink {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.profileBtn {
+  display: inline-block;
+  padding: 12px 32px;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  color: var(--color-bg);
+  background-color: var(--color-text);
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.profileBtn:hover {
+  opacity: 0.85;
+}

@@ -28,9 +28,10 @@ export default function ConnexionPage() {
 
       // Stockage du token et des infos dans le contexte
       authLogin({
-        token:    response.data.token,
+        id: response.data.id,
+        token: response.data.token,
         username: response.data.username,
-        role:     response.data.role,
+        role: response.data.role,
       });
 
       setSuccess('Vous êtes bien connecté !');
