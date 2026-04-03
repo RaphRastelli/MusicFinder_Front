@@ -5,7 +5,7 @@
   font-family: var(--font-main);
   color: var(--color-bg);
   background-color: var(--color-text);
-  padding: 0px 20px 0 20px;
+  padding: 0px 20px 0px 20px;
   overflow: hidden;
 }
 
@@ -22,5 +22,5 @@
   line-height: 1 !important;
   color: var(--color-bg) !important;
   text-decoration: none !important;
-  transform: translateY(12px); /* pousse le texte vers le bas — ajustez la valeur */
+  transform: translateY(12px); /* pousse le texte vers le bas — ajuster la valeur si police change */
 }
