@@ -21,7 +21,7 @@ export default function ResultsPage() {
     return (
       <div className={style.container}>
         <p className={style.noResult}>
-          Désolé, aucun musicien ne joue de l'instrument recherché.
+          Désolé, aucun•e musicien•ne ne joue de l'instrument recherché.
         </p>
         <button
           onClick={() => navigate('/recherche')}
@@ -40,7 +40,7 @@ export default function ResultsPage() {
       <div className={style.header}>
         <h2>Résultats de la recherche</h2>
         <p className={style.count}>
-          {totalCount} musicien.ne{totalCount > 1 ? 's' : ''} trouvé.e{totalCount > 1 ? 's' : ''}
+          {totalCount} musicien•ne{totalCount > 1 ? 's' : ''} trouvé•e{totalCount > 1 ? 's' : ''}
         </p>
       </div>
 

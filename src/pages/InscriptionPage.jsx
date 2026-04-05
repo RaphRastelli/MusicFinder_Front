@@ -32,7 +32,7 @@ export default function InscriptionPage() {
 
     // Validation côté frontend avant d'envoyer au backend
     if (username.length < 3) {
-      setError("Le nom d'utilisateur doit contenir au moins 3 caractères.");
+      setError("Le nom doit contenir au moins 3 caractères.");
       return;
     }
 

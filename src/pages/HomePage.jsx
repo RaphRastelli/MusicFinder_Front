@@ -30,10 +30,9 @@ export default function HomePage() {
           localisation…
         </p>
         <p>
-          MusicianFinder vous permet, que vous soyez inscrit.e ou non, de
+          MusicianFinder vous permet, que vous soyez inscrit•e ou non, de
           rechercher des musiciennes et musiciens en fonction de ces
-          différents critères et, ensuite, de pouvoir leur envoyer des
-          messages.
+          différents critères.
         </p>
       </div>
 
