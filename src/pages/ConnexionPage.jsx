@@ -89,7 +89,6 @@ export default function ConnexionPage() {
       </form>
 
       <div className={style.links}>
-        <Link to="/profil">Remplir mon profil</Link>
         <Link to="/inscription">Créer un compte</Link>
       </div>
     </div>

@@ -151,7 +151,6 @@ export default function InscriptionPage() {
       </form>
 
       <div className={style.links}>
-        <Link to="/profil">Remplir mon profil</Link>
         <Link to="/connexion">Connexion</Link>
       </div>
     </div>
