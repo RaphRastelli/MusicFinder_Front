@@ -1,8 +1,10 @@
 # MusicianFinder_Front
 
-Voici le fontend de la Web application **MusicianFinder**, travail de fin de formation _codeur-développeur_ de Bruxelles Formation.
+Voici la partie frontend de la Web application **MusicianFinder**, travail de fin de formation _codeur-développeur_ de Bruxelles Formation. Il a été présenté le 7 avril 2026.
 
-## Le principe de l'application est le suivant :
+Il y a un repository [***MusicianFinder_Back***](https://github.com/RaphRastelli/MusicianFinder_Back) pour le backend.
+
+## Principe de l'application :
 
 **MusicianFinder** est une application répertoire. Elle permet de rechercher et mettre en contact des musiciens et musiciennes (inscrit•es) ou d’en chercher par des visiteurs non-inscrits (par un réalisateur de film par exemple).
 
