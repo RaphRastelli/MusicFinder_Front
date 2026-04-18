@@ -3,8 +3,8 @@ import { MUSIC_STYLES } from '../../data/referentiels.js';
 import Toast from '../Toast/Toast.jsx';
 import style from './ProfilForm.module.css';
 
-export default function StylePrincipalForm({ onSave }) {
-  const [selected, setSelected] = useState(null);
+export default function StylePrincipalForm({ onSave, initialValue }) {
+  const [selected, setSelected] = useState(initialValue ?? null);
   const [toast, setToast] = useState(null);
   const [loading, setLoading] = useState(false);
 

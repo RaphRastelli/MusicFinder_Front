@@ -4,8 +4,8 @@ import style from './ProfilForm.module.css';
 
 const MAX_LENGTH = 5000;
 
-export default function DescriptionForm({ onSave }) {
-  const [description, setDescription] = useState('');
+export default function DescriptionForm({ onSave, initialValue }) {
+  const [description, setDescription] = useState(initialValue ?? '');
   const [toast,       setToast]       = useState(null);
   const [loading,     setLoading]     = useState(false);
 

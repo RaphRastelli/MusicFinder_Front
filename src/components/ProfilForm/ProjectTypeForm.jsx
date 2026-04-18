@@ -3,8 +3,8 @@ import { PROJECT_TYPES } from '../../data/referentiels.js';
 import Toast from '../Toast/Toast.jsx';
 import style from './ProfilForm.module.css';
 
-export default function ProjectTypeForm({ onSave }) {
-  const [selected, setSelected] = useState([]);
+export default function ProjectTypeForm({ onSave, initialValue }) {
+  const [selected, setSelected] = useState(initialValue ?? []);
   const [toast,    setToast]    = useState(null);
   const [loading,  setLoading]  = useState(false);
 

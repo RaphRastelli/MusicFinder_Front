@@ -3,8 +3,8 @@ import { INSTRUMENTS } from '../../data/referentiels.js';
 import Toast from '../Toast/Toast.jsx';
 import style from './ProfilForm.module.css';
 
-export default function InstrumentsSecondairesForm({ onSave, instrumentPrincipalId }) {
-  const [selected, setSelected] = useState([]);
+export default function InstrumentsSecondairesForm({ onSave, instrumentPrincipalId, initialValues }) {
+  const [selected, setSelected] = useState(initialValues ?? []);
   const [toast, setToast] = useState(null);
   const [loading, setLoading] = useState(false);
 

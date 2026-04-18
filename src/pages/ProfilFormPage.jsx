@@ -12,6 +12,7 @@ import DescriptionForm            from '../components/ProfilForm/DescriptionForm
 import style from './ProfilFormPage.module.css';
 import ProjectTypeForm from '../components/ProfilForm/ProjectTypeForm.jsx';
 import {
+  getMyProfile,
   saveInstrumentPrincipal,
   saveInstrumentsSecondaires,
   saveNiveau,
@@ -22,6 +23,8 @@ import {
   saveStylesSecondaires,
   saveDescription,
 } from '../api/musicianApi.js';
+import { INSTRUMENTS, LOCATIONS, ABILITY_LEVELS,
+         AVAILABILITY_LEVELS, MUSIC_STYLES, PROJECT_TYPES } from '../data/referentiels.js';
 
 
 export default function ProfilFormPage() {
@@ -31,6 +34,8 @@ export default function ProfilFormPage() {
 
   const { musicianId } = useAuth();
 
+  const [profileLoaded, setProfileLoaded] = useState(false);
+
 
   // ─── États pour les dépendances entre formulaires ─────────────────────
   // Ces deux valeurs sont partagées entre formulaires :
@@ -38,8 +43,78 @@ export default function ProfilFormPage() {
   //   pour qu'il exclue l'instrument principal de sa liste
   // - stylePrincipalId est passé à StylesSecondairesForm
   //   pour la même raison
+  // États initiaux pour chaque formulaire
+  const [initialInstrumentPrincipal, setInitialInstrumentPrincipal] = useState(null);
+  const [initialInstrumentsSecondaires, setInitialInstrumentsSecondaires] = useState([]);
+  const [initialNiveau, setInitialNiveau] = useState(null);
+  const [initialLocations, setInitialLocations] = useState([]);
+  const [initialProjectTypes, setInitialProjectTypes] = useState([]);
+  const [initialDisponibilite, setInitialDisponibilite] = useState(null);
+  const [initialStylePrincipal, setInitialStylePrincipal] = useState(null);
+  const [initialStylesSecondaires, setInitialStylesSecondaires] = useState([]);
+  const [initialDescription, setInitialDescription] = useState('');
+
+  // États pour les dépendances entre formulaires
   const [instrumentPrincipalId, setInstrumentPrincipalId] = useState(null);
-  const [stylePrincipalId, setStylePrincipalId] = useState(null);
+  const [stylePrincipalId, setStylePrincipalId] = useState(null)
+
+  // Chargement du profil existant au montage du composant
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await getMyProfile();
+        const profile  = response.data;
+
+        // Conversion des libellés en ids pour pré-sélectionner les bonnes options
+        const instrPrincipal = INSTRUMENTS.find(
+          i => i.label === profile.instrumentPrincipal)?.id ?? null;
+        const instrsSecondaires = INSTRUMENTS
+          .filter(i => profile.instrumentsSecondaires.includes(i.label))
+          .map(i => i.id);
+        const niveau = ABILITY_LEVELS.find(
+          a => a.label === profile.ability)?.id ?? null;
+        const locs = LOCATIONS
+          .filter(l => profile.locations.includes(l.label))
+          .map(l => l.id);
+        const projTypes = PROJECT_TYPES
+          .filter(pt => profile.projectTypes.includes(pt.label))
+          .map(pt => pt.id);
+        const dispo = AVAILABILITY_LEVELS.find(
+          a => a.label === profile.availability)?.id ?? null;
+        const stylePrinc = MUSIC_STYLES.find(
+          s => s.label === profile.stylePrincipal)?.id ?? null;
+        const stylesSecond = MUSIC_STYLES
+          .filter(s => profile.stylesSecondaires.includes(s.label))
+          .map(s => s.id);
+
+        setInitialInstrumentPrincipal(instrPrincipal);
+        setInitialInstrumentsSecondaires(instrsSecondaires);
+        setInitialNiveau(niveau);
+        setInitialLocations(locs);
+        setInitialProjectTypes(projTypes);
+        setInitialDisponibilite(dispo);
+        setInitialStylePrincipal(stylePrinc);
+        setInitialStylesSecondaires(stylesSecond);
+        setInitialDescription(profile.description ?? '');
+
+        // Mise à jour des états de dépendance
+        setInstrumentPrincipalId(instrPrincipal);
+        setStylePrincipalId(stylePrinc);
+
+      } catch {
+        // Profil pas encore rempli — on laisse les formulaires vides
+      } finally {
+        setProfileLoaded(true);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  // On attend que le profil soit chargé avant d'afficher les formulaires
+  if (!profileLoaded) {
+    return <div className={style.container}><p>Chargement...</p></div>;
+  }
 
 
   // ─── Protection de la route ───────────────────────────────────────────
@@ -117,6 +192,7 @@ export default function ProfilFormPage() {
 
       <InstrumentPrincipalForm
         onSave={handleInstrumentPrincipal}
+        initialValue={initialInstrumentPrincipal}  // ← Affiche valeur existante
       />
 
       {/* instrumentPrincipalId est passé en prop pour que ce formulaire
@@ -124,37 +200,45 @@ export default function ProfilFormPage() {
       <InstrumentsSecondairesForm
         onSave={handleInstrumentsSecondaires}
         instrumentPrincipalId={instrumentPrincipalId}
+        initialValue={initialInstrumentsSecondaires}
       />
 
       <NiveauForm
         onSave={handleNiveau}
+        initialValue={initialNiveau}
       />
 
       <LocalisationForm
         onSave={handleLocalisation}
+        initialValues={initialLocations}
       />
 
       <ProjectTypeForm
        onSave={handleProjectTypes}
+       initialValues={initialProjectTypes}
       />
 
       <DisponibiliteForm
         onSave={handleDisponibilite}
+        initialValue={initialDisponibilite}
       />
 
       <StylePrincipalForm
-        onSave={handleStylePrincipal}
+        onSave={handleStylePrincipal}y
+        initialValue={initialStylePrincipal}
       />
 
       {/* stylePrincipalId est passé en prop pour la même raison */}
       <StylesSecondairesForm
         onSave={handleStylesSecondaires}
         stylePrincipalId={stylePrincipalId}
+        initialValues={initialStylesSecondaires}
       />
 
       {/* Dernier formulaire — description libre */}
       <DescriptionForm
         onSave={handleDescription}
+        initialValue={initialDescription}
       />
 
       {/* Bouton "Voir mon profil" — en bas de page */}

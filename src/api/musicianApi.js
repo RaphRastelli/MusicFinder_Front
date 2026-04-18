@@ -30,3 +30,6 @@ export const saveDescription = (description) =>
 // Accessible à tous — pas de token requis
 export const getMusicianProfile = (id) =>
   axiosInstance.get(`/api/musicians/${id}`);
+
+export const getMyProfile = () =>
+  axiosInstance.get('/api/musicians/me');

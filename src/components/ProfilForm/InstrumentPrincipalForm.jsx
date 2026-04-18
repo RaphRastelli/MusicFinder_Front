@@ -8,12 +8,12 @@ import style from './ProfilForm.module.css';
 // Ce composant ne sait PAS ce que fait onSave — il délègue.
 // Ça permet de garder la logique API dans ProfilFormPage
 // et de réutiliser ce composant si besoin.
-export default function InstrumentPrincipalForm({ onSave }) {
+export default function InstrumentPrincipalForm({ onSave, initialValue }) {
 
   // selected : l'id de l'instrument choisi (null = rien sélectionné)
   // On stocke l'id (un nombre) et non le label (le texte)
   // car c'est l'id qu'on envoie au backend
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState(initialValue ?? null);
 
   // toast : objet { message, type } ou null si aucun toast à afficher
   // type peut être 'success', 'error' ou 'info'
