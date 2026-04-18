@@ -14,19 +14,18 @@ export default function ResultsPage() {
     return null;
   }
 
-  const { musicians, totalCount, noInstrumentMatch } = state.result;
+  const { musicians, totalCount, noInstrumentMatch, noMatch } = state.result;
 
-  // ── Cas : aucun musicien ne joue l'instrument recherché ────────────
-  if (noInstrumentMatch) {
+  // Cas : aucune correspondance (instrument OU location)
+  if (noInstrumentMatch || noMatch) {
     return (
       <div className={style.container}>
         <p className={style.noResult}>
-          Désolé, aucun•e musicien•ne ne joue de l'instrument recherché.
+          {noInstrumentMatch
+            ? "Désolé, aucun•e musicien•ne ne joue de l'instrument recherché."
+            : "Désolé, aucun•e musicien•ne ne correspond à votre recherche."}
         </p>
-        <button
-          onClick={() => navigate('/recherche')}
-          className={style.backBtn}
-        >
+        <button onClick={() => navigate('/recherche')} className={style.backBtn}>
           ← Retour à la recherche
         </button>
       </div>
