@@ -18,15 +18,15 @@ export default function SearchPage() {
   // ── État du formulaire ─────────────────────────────────────────────
   // Chaque champ a son propre état — null = rien sélectionné
   // Pour Ability, on utilise un tableau car plusieurs choix sont possibles
-  const [instrumentId,   setInstrumentId]   = useState(null);
-  const [locationId,     setLocationId]     = useState(null);
-  const [abilityIds,     setAbilityIds]     = useState([]);
+  const [instrumentId, setInstrumentId] = useState(null);
+  const [locationId, setLocationId] = useState(null);
+  const [abilityIds, setAbilityIds] = useState([]);
   const [sansImportance, setSansImportance] = useState(false);
-  const [projectTypeId,  setProjectTypeId]  = useState(null);
+  const [projectTypeId, setProjectTypeId] = useState(null);
   const [availabilityId, setAvailabilityId] = useState(null);
-  const [musicStyleId,   setMusicStyleId]   = useState(null);
+  const [musicStyleId, setMusicStyleId] = useState(null);
 
-  const [toast,   setToast]   = useState(null);
+  const [toast, setToast] = useState(null);
   const [loading, setLoading] = useState(false);
 
   // ── Gestion "Sans importance" pour Ability ─────────────────────────

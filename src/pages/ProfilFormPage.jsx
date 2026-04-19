@@ -200,7 +200,7 @@ export default function ProfilFormPage() {
 
       <InstrumentPrincipalForm
         onSave={handleInstrumentPrincipal}
-        initialValue={initialInstrumentPrincipal}  // ← Affiche valeur existante
+        initialValues={initialInstrumentPrincipal}  // ← Affiche valeur existante
       />
 
       {/* instrumentPrincipalId est passé en prop pour que ce formulaire
@@ -208,12 +208,12 @@ export default function ProfilFormPage() {
       <InstrumentsSecondairesForm
         onSave={handleInstrumentsSecondaires}
         instrumentPrincipalId={instrumentPrincipalId}
-        initialValue={initialInstrumentsSecondaires}
+        initialValues={initialInstrumentsSecondaires}
       />
 
       <NiveauForm
         onSave={handleNiveau}
-        initialValue={initialNiveau}
+        initialValues={initialNiveau}
       />
 
       <LocalisationForm
@@ -228,12 +228,12 @@ export default function ProfilFormPage() {
 
       <DisponibiliteForm
         onSave={handleDisponibilite}
-        initialValue={initialDisponibilite}
+        initialValues={initialDisponibilite}
       />
 
       <StylePrincipalForm
         onSave={handleStylePrincipal}y
-        initialValue={initialStylePrincipal}
+        initialValues={initialStylePrincipal}
       />
 
       {/* stylePrincipalId est passé en prop pour la même raison */}
@@ -246,7 +246,7 @@ export default function ProfilFormPage() {
       {/* Dernier formulaire — description libre */}
       <DescriptionForm
         onSave={handleDescription}
-        initialValue={initialDescription}
+        initialValues={initialDescription}
       />
 
       {/* Bouton "Voir mon profil" — en bas de page */}

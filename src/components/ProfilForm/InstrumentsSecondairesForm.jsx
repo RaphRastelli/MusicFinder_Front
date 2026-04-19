@@ -13,6 +13,10 @@ export default function InstrumentsSecondairesForm({ onSave, instrumentPrincipal
     if (initialValues && initialValues.length > 0) {
       setSelected(initialValues);
     }
+    // Log temporaires
+    console.log('InstrumentsSecondairesForm — initialValues reçus :', initialValues);
+    console.log('InstrumentsSecondairesForm — instrumentPrincipalId :', instrumentPrincipalId)
+    
   }, [initialValues]);  // ← se déclenche quand initialValues change
 
   const handleChange = (id) => {

@@ -3,8 +3,8 @@ import { AVAILABILITY_LEVELS } from '../../data/referentiels.js';
 import Toast from '../Toast/Toast.jsx';
 import style from './ProfilForm.module.css';
 
-export default function DisponibiliteForm({ onSave, initialValue }) {
-  const [selected, setSelected] = useState(initialValue ?? null);
+export default function DisponibiliteForm({ onSave, initialValues }) {
+  const [selected, setSelected] = useState(initialValues ?? null);
   const [toast, setToast] = useState(null);
   const [loading, setLoading] = useState(false);
 
