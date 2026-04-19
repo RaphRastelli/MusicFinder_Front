@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import InstrumentPrincipalForm    from '../components/ProfilForm/InstrumentPrincipalForm.jsx';
@@ -86,6 +87,13 @@ export default function ProfilFormPage() {
         const stylesSecond = MUSIC_STYLES
           .filter(s => profile.stylesSecondaires.includes(s.label))
           .map(s => s.id);
+
+        // Logs de diagnostic
+      console.log('instrumentsSecondaires reçus :', profile.instrumentsSecondaires);
+      console.log('instrsSecondaires convertis :', instrsSecondaires);
+      console.log('projectTypes reçus :', profile.projectTypes);
+      console.log('projTypes convertis :', projTypes);
+      console.log('PROJECT_TYPES labels :', PROJECT_TYPES.map(pt => pt.label));
 
         setInitialInstrumentPrincipal(instrPrincipal);
         setInitialInstrumentsSecondaires(instrsSecondaires);

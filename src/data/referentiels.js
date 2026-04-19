@@ -81,11 +81,16 @@ export const ABILITY_LEVELS = [
 ];
 
 export const PROJECT_TYPES = [
-  { id: 1, label: "Projet à long terme sans garantie financière (ex. : groupe amateur ou en développement)" },
-  { id: 2, label: "Projet à long terme avec garantie financière (ex. : groupe établi financièrement viable)" },
-  { id: 3, label: "Projet ponctuel sans garantie financière (ex. : concert payé aux entrées)" },
-  { id: 4, label: "Projet ponctuel avec garantie financière (ex. : session d'enregistrement ou concert payés)" },
-  { id: 5, label: "Je donne des cours de mon instrument" },
+  { id: 1, label: "Projet à long terme sans garantie financière",
+    example: "ex. : groupe amateur ou en développement" },
+  { id: 2, label: "Projet à long terme avec garantie financière",
+    example: "ex. : groupe établi financièrement viable" },
+  { id: 3, label: "Projet ponctuel sans garantie financière",
+    example: "ex. : concert payé aux entrées" },
+  { id: 4, label: "Projet ponctuel avec garantie financière",
+    example: "ex. : session d'enregistrement ou concert payés" },
+  { id: 5, label: "Je donne des cours de mon instrument",
+    example: null },
 ];
 
 export const AVAILABILITY_LEVELS = [

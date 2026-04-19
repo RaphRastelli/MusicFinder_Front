@@ -83,3 +83,9 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.example {
+  font-size: 0.82rem;
+  color: #666;
+  font-style: italic;
+}

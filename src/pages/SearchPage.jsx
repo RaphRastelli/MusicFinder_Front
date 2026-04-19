@@ -188,13 +188,17 @@ export default function SearchPage() {
             {PROJECT_TYPES.map((pt) => (
               <label key={pt.id} className={style.option}>
                 <input
-                  type="radio"
-                  name="projectType"
+                  type="checkbox"
                   value={pt.id}
-                  checked={projectTypeId === pt.id}
-                  onChange={() => setProjectTypeId(pt.id)}
+                  checked={selected.includes(pt.id)}
+                  onChange={() => handleChange(pt.id)}
                 />
-                {pt.label}
+                <span>
+                  {pt.label}
+                  {pt.example && (
+                    <small className={style.example}> ({pt.example})</small>
+                  )}
+                </span>
               </label>
             ))}
           </div>

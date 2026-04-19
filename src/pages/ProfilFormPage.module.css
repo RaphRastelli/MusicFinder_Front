@@ -30,3 +30,9 @@
 .profileBtn:hover {
   opacity: 0.85;
 }
+
+.example {
+  font-size: 0.82rem;
+  color: #666;
+  font-style: italic;
+}

@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { LOCATIONS } from '../../data/referentiels.js';
 import Toast from '../Toast/Toast.jsx';
 import style from './ProfilForm.module.css';
 
-export default function LocalisationForm({ onSave, initialValue }) {
-  const [selected, setSelected] = useState(initialValue ?? []);
+export default function LocalisationForm({ onSave, initialValues }) {
+  const [selected, setSelected] = useState(initialValues ?? []);
   const [toast, setToast] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+  if (initialValues && initialValues.length > 0) {
+    setSelected(initialValues);
+  }
+}, [initialValues])
 
   const handleChange = (id) => {
     setSelected((prev) =>

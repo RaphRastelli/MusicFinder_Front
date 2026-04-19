@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PROJECT_TYPES } from '../../data/referentiels.js';
 import Toast from '../Toast/Toast.jsx';
 import style from './ProfilForm.module.css';
 
-export default function ProjectTypeForm({ onSave, initialValue }) {
-  const [selected, setSelected] = useState(initialValue ?? []);
-  const [toast,    setToast]    = useState(null);
-  const [loading,  setLoading]  = useState(false);
+export default function ProjectTypeForm({ onSave, initialValues }) {
+  const [selected, setSelected] = useState(initialValues ?? []);
+  const [toast, setToast] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+  if (initialValues && initialValues.length > 0) {
+    setSelected(initialValues);
+  }
+}, [initialValues]);
 
   const handleChange = (id) => {
     setSelected((prev) =>
@@ -52,7 +58,12 @@ export default function ProjectTypeForm({ onSave, initialValue }) {
                 checked={selected.includes(pt.id)}
                 onChange={() => handleChange(pt.id)}
               />
-              {pt.label}
+              <span>
+                {pt.label}
+                {pt.example && (
+                  <small className={style.example}> ({pt.example})</small>
+                )}
+              </span>
             </label>
           ))}
         </div>

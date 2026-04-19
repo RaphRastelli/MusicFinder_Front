@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { INSTRUMENTS } from '../../data/referentiels.js';
 import Toast from '../Toast/Toast.jsx';
 import style from './ProfilForm.module.css';
@@ -7,6 +7,13 @@ export default function InstrumentsSecondairesForm({ onSave, instrumentPrincipal
   const [selected, setSelected] = useState(initialValues ?? []);
   const [toast, setToast] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  // Synchronise selected quand initialValues arrive depuis le parent
+  useEffect(() => {
+    if (initialValues && initialValues.length > 0) {
+      setSelected(initialValues);
+    }
+  }, [initialValues]);  // ← se déclenche quand initialValues change
 
   const handleChange = (id) => {
     setSelected((prev) => {
